@@ -11,15 +11,15 @@ node{
     def workspacePath = pwd()
     sh "echo ${commitid} > ${workspacePath}/expectedCommitid.txt"
     
-    withMaven(
-                maven: 'M3',
-                mavenSettingsConfig: 'a1adf035-653b-410d-b5a6-16b6da77b322',
-                mavenLocalRepo: '.repository') {
-    
-            // Run the maven build
-            sh "mvn clean package -Dcommitid=${commitid}"
-        }
-        
+   // withMaven(
+   //             maven: 'M3',
+   //             mavenSettingsConfig: 'a1adf035-653b-410d-b5a6-16b6da77b322',
+   //             mavenLocalRepo: '.repository') {
+   // 
+   //         // Run the maven build
+   //         sh "mvn clean package -Dcommitid=${commitid}"
+   //     }
+        sh "mvn clean package -Dcommitid=${commitid}"
     //sh "mvn clean package -Dcommitid=${commitid}"
 }
  
