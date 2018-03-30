@@ -1,6 +1,6 @@
 import groovy.json.JsonSlurper;
  
-properties([[$class: 'GitLabConnectionProperty', gitLabConnection: 'my-gitlab-connection']])
+//properties([[$class: 'GitLabConnectionProperty', gitLabConnection: 'my-gitlab-connection']])
 
 node{
     stage 'Build, Test and Package'
