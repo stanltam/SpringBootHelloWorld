@@ -37,7 +37,9 @@ node{
 
     sh "cp target/*.jar ${workspacePath}/deployment/"
     // start the application
-    sh 'nohup java -jar /var/lib/jenkins/workspace/SampleSpringBoot/deployment/hello-world-1.0.0-SNAPSHOT.jar ^&'
+    sh "chmod 770 ./startApp.sh"
+
+    sh "./startApp.sh"
     // wait for application to respond
     sh 'while ! httping -qc1 http://localhost:8888 ; do sleep 1 ; done'
 }

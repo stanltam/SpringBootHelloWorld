@@ -1,0 +1,1 @@
+nohup java -jar /var/lib/jenkins/workspace/SampleSpringBoot/deployment/hello-world-1.0.0-SNAPSHOT.jar &
