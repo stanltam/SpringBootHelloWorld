@@ -26,12 +26,15 @@ node{
 node{
     stage 'Stop, Deploy and Start'
     def workspacePath = pwd()
+	sh "echo ${workspacePath}"
+
 
     // shutdown
     sh 'curl -X POST http://localhost:8888/shutdown || true'
 
     // copy file to target location
 	sh 'mkdir -p ${workspacePath}/deployment'
+
     sh 'cp target/*.jar ${workspacePath}/deployment/'
     // start the application
     sh 'nohup java -jar ${workspacePath}/deployment/*.jar &'
