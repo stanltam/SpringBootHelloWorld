@@ -31,6 +31,7 @@ node{
 
     // shutdown
     sh 'curl -X POST http://localhost:8888/shutdown || true'
+	sh "echo ${workspacePath}"
 
     // copy file to target location
 	sh 'mkdir -p ${workspacePath}/deployment'
