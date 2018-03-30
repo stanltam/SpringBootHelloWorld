@@ -37,7 +37,7 @@ node{
 
     sh "cp target/*.jar ${workspacePath}/deployment/"
     // start the application
-    sh "nohup java -jar ${workspacePath}/deployment/*.jar &"
+    sh "nohup java -jar ${workspacePath}/deployment/*.jar \&"
     // wait for application to respond
     sh 'while ! httping -qc1 http://localhost:8888 ; do sleep 1 ; done'
 }
