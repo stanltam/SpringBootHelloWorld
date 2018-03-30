@@ -31,14 +31,13 @@ node{
 
     // shutdown
     sh 'curl -X POST http://localhost:8888/shutdown || true'
-	sh "echo ${workspacePath}"
 
     // copy file to target location
-	sh 'mkdir -p ${workspacePath}/deployment'
+	sh "mkdir -p ${workspacePath}/deployment"
 
-    sh 'cp target/*.jar ${workspacePath}/deployment/'
+    sh "cp target/*.jar ${workspacePath}/deployment/"
     // start the application
-    sh 'nohup java -jar ${workspacePath}/deployment/*.jar &'
+    sh "nohup java -jar ${workspacePath}/deployment/*.jar &"
     // wait for application to respond
     sh 'while ! httping -qc1 http://localhost:8888 ; do sleep 1 ; done'
 }
