@@ -27,10 +27,13 @@ node{
     stage 'Stop, Deploy and Start'
     // shutdown
     sh 'curl -X POST http://localhost:8888/shutdown || true'
+	sh 'mkdir -p /home/stanley/helloworld'
+
     // copy file to target location
-    sh 'cp target/*.jar /tmp/'
+	
+    sh 'cp target/*.jar /home/stanley/helloworld/'
     // start the application
-    sh 'nohup java -jar /tmp/*.jar &'
+    sh 'nohup java -jar /home/stanley/helloworld/*.jar &'
     // wait for application to respond
     sh 'while ! httping -qc1 http://localhost:8888 ; do sleep 1 ; done'
 }
