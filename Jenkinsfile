@@ -42,6 +42,7 @@ node{
     sh "./startApp.sh"
     // wait for application to respond
   //  sh 'while ! httping -qc1 http://localhost:8888 ; do sleep 1 ; done'
+     sh 'netstat -na | grep 8888'
 	return 0
 }
  
