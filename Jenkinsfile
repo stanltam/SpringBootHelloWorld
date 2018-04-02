@@ -24,7 +24,8 @@ node{
 }
  
 node{
-    stage 'Stop, Deploy and Start'
+//    stage 'Stop, Deploy and Start'
+	stage name: 'Stop, Deploy and Start', concurrency: 1
     def workspacePath = pwd()
 	sh "echo ${workspacePath}"
 
