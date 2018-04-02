@@ -26,7 +26,7 @@ node{
 node{
 //    stage 'Stop, Deploy and Start'
 	stage name: 'Stop, Deploy and Start', concurrency: 1
-	input 'Are you sure to stop current application?' 
+	input message: 'Are you confirm to proceed?', submitter: 'stanley'
     def workspacePath = pwd()
 	sh "echo ${workspacePath}"
 
