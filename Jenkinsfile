@@ -26,6 +26,7 @@ node{
 node{
 //    stage 'Stop, Deploy and Start'
 	stage name: 'Stop, Deploy and Start', concurrency: 1
+	input 'Are you sure to stop current application?' 
     def workspacePath = pwd()
 	sh "echo ${workspacePath}"
 
@@ -51,7 +52,13 @@ node{
     sh "./startApp.sh"
     sh "curl --retry-delay 10 --retry 100 http://localhost:8888/info -o ${workspacePath}/info.json"
     if (deploymentOk()){
-        return 0
+		//it is for trying calling other free-style job
+		def job = build job: 'say-hello', parameters: [[$class: 'StringParameterValue', name: 'who', value: 'Blog Readers']] 
+		echo 'Sending Email....'
+        mail bcc: '', body: 'Build Completed successfully!', cc: '', from: '', replyTo: '', subject: '[Jenkin Pipeline]Build Completed', to: 'stanltam@gmail.com'
+
+	  return 0
+
     } else {
         return 1
     }
