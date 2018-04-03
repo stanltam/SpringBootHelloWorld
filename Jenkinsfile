@@ -26,7 +26,7 @@ node{
 node{
 //    stage 'Stop, Deploy and Start'
 	stage name: 'Stop, Deploy and Start', concurrency: 1
-	//For email approval
+	//For email approval 
 	mail body: "The job is waiting for your approval, please approve by accessing the following url: http://192.168.15.141:8080/job/SampleSpringBoot/${build_number}/input/002ad408ab77a9fe903f75e8520a3e32/proceedEmpty",
         charset: 'UTF-8',
         from: 'jenkins@gmail.com',
