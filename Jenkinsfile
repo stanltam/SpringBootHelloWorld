@@ -27,7 +27,7 @@ node{
         from: 'jenkins@gmail.com',
         mimeType: 'text/plain',
         replyTo: 'jenkins@gmail.com',
-        subject: 'Please approve for the Jenkins Jobs',
+        subject: "Please approve for the Jenkins Jobs on ${env.JENKINS_URL}",
         to: 'stanltam@gmail.com'
 }
  
