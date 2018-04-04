@@ -3,7 +3,7 @@ import groovy.json.JsonSlurper;
 //properties([[$class: 'GitLabConnectionProperty', gitLabConnection: 'my-gitlab-connection']])
 
 node{
-    stage 'Build, Test and Package'
+    stage '\u2776 Build, Test and Package'
     env.PATH = "${tool 'M3'}/bin:${env.PATH}"
     checkout scm
     // workaround, taken from https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/gitcommit/gitcommit.groovy
@@ -24,7 +24,7 @@ node{
 }
  
 node{
-//    stage 'Stop, Deploy and Start'
+//    stage '\u2777 Stop, Deploy and Start'
 	stage name: 'Stop, Deploy and Start', concurrency: 1
 	//For email approval 
 	
@@ -56,7 +56,7 @@ node{
 }
  
 node{
-    stage 'Smoketest'
+    stage '\u2778 Smoketest'
     def workspacePath = pwd()
     sh "./startApp.sh"
     sh "curl --retry-delay 10 --retry 100 http://localhost:8888/info -o ${workspacePath}/info.json"
